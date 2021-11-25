@@ -6,7 +6,6 @@ class DB {
   constructor(dataFileName) {
     this.dataFileName = join(__dirname, '../data', dataFileName);
     this._load();
-
   }
 
   async _load() {
@@ -49,6 +48,9 @@ class DB {
     await this._save();
   }
 
+  getTasksNum() {
+    return this._data.length;
+  }
 }
 
 const db = new DB('db.json');

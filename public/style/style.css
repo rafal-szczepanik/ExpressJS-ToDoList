@@ -91,12 +91,13 @@ body {
 
 .buttons {
     width: 30%;
-display: flex;
+    display: flex;
     align-items: flex-start;
     justify-content: flex-end;
     margin-right: 15px;
 }
-.btn-property{
+
+.btn-property {
     margin-left: 7px;
     font-size: 15px;
 }
@@ -111,6 +112,7 @@ display: flex;
     background-color: rgb(66, 55, 99);
     color: #fff;
     cursor: pointer;
+    border: 1px solid white;
 }
 
 .btn-del {
@@ -167,17 +169,45 @@ footer {
     letter-spacing: 1px;
 }
 
+.task-edit-wrapper {
+    position: absolute;
+    /*display: none;*/
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(5px);
+}
+
+.task-edit-container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    height: 150px;
+    width: 220px;
+    background-color: rgb(96, 79, 144);
+    transform: translate(-50%, -50%);
+}
+
+.task-edit-container form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 @media (max-width: 750px) {
     .list {
         width: 95%;
     }
 
     .list-item {
-
         font-size: 15px;
     }
 
-    .btn-property{
+    .btn-property {
         margin-left: 5px;
         font-size: 12px;
     }
@@ -203,6 +233,7 @@ footer {
     .tasks-todo-number {
         margin: 1px 0 1px 0;
     }
+
     .txt {
         width: 55%;
         font-size: 14px;
