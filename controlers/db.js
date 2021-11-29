@@ -47,10 +47,6 @@ class DB {
     this._data = this._data.filter(obj => obj.id !== id);
     await this._save();
   }
-
-  getTasksNum() {
-    return this._data.length;
-  }
 }
 
 const db = new DB('db.json');

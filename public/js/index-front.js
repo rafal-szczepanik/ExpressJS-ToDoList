@@ -43,8 +43,10 @@ const confirmTask = async e => {
   });
   inputValue.value = "";
   taskConfirmBtn.disabled = true;
-  
+
   createElements();
+  showTasksNumber();
+  showToDoTasksNumber();
 };
 
 const handleTaskDisplay = (isDone, liElement, textElement, checkBtn) => {
@@ -82,8 +84,6 @@ const createElements = async () => {
 
     handleTaskDisplay(isDone, clonedItem, textItem, checkedBtn);
     listContainer.appendChild(clonedItem);
-    showTasksNumber();
-    showToDoTasksNumber();
   });
 };
 
@@ -127,6 +127,7 @@ const checkTask = async ({target}) => {
       'Content-Type': "application/json"
     }
   });
+  showToDoTasksNumber();
   createElements();
 };
 
@@ -135,7 +136,10 @@ const deleteTask = async ({target}) => {
   await fetch(`task/${id}`, {
     method: "DELETE",
   });
+  showTasksNumber();
+  showToDoTasksNumber();
   createElements();
+
 };
 
 
@@ -143,6 +147,7 @@ const showToDoTasksNumber = async () => {
   const data = await fetchedAllElements();
   const toDoNumber = data.filter(el => !el.isDone);
   tasksToDoNumber.innerText = `Tasks To Do: ${Number(toDoNumber.length)}`;
+  console.log((toDoNumber));
 };
 
 const showTasksNumber = async () => {
@@ -152,7 +157,8 @@ const showTasksNumber = async () => {
 
 const searchTask = () => {
 };
-
+showTasksNumber();
+showToDoTasksNumber();
 createElements();
 
 
